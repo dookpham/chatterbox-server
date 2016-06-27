@@ -16,6 +16,8 @@ describe('Node Server Request Listener Function', function() {
     // but we want to test our function's behavior totally independent of the server code
     var req = new stubs.request('/classes/messages', 'GET');
     var res = new stubs.response();
+    console.log(res, 'res', '---------------------------------------->');
+    console.log(req, 'req');
 
     handler.requestHandler(req, res);
 
@@ -90,6 +92,8 @@ describe('Node Server Request Listener Function', function() {
       // Now if we request the log for that room the message we posted should be there:
     req = new stubs.request('/classes/messages', 'GET');
     res = new stubs.response();
+
+    console.log(res._data, '----------------------------------------> res._data');
 
     handler.requestHandler(req, res);
 
