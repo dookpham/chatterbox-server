@@ -12,7 +12,7 @@ this file and include it in basic-server.js so that it actually works.
 
 **************************************************************/
 
-var messages = [];
+var messages = [{username: 'Duke', message: 'success?'}];
 var requestHandler = function(request, response) {
 
   // Request and Response come from node's http module.
@@ -31,8 +31,8 @@ var requestHandler = function(request, response) {
   // console.logs in your code.
   console.log('Serving request type ' + request.method + ' for url ' + request.url);
   // The outgoing status.
-  console.log('request ---------------------------->', request);
-  var statusCode = request.method === "POST" ? 201 : 200;
+  // console.log('request ---------------------------->', request);
+  var statusCode = request.method === 'POST' ? 201 : 200;
   statusCode = request.url !== '/classes/messages' ? 404 : statusCode;
 
   // See the note below about CORS headers.
@@ -50,20 +50,21 @@ var requestHandler = function(request, response) {
 
   request.on('data', function(chunk) {
     if (chunk) {
-      console.log(chunk, 'request chunk ---------------------------------------->');
+      // console.log(chunk, 'request chunk ---------------------------------------->');
       messages.push(JSON.parse(chunk));
     }
   });
 
-  console.log(messages);
-  console.log({results: [{username: 'Jono', message: 'Do my bidding!'}, {username: 'Jono', message: 'Do my bidding!'}] }, '------------------> results');
+  // console.log(messages);
+  // console.log({results: [{username: 'Jono', message: 'Do my bidding!'}, {username: 'Jono', message: 'Do my bidding!'}] }, '------------------> results');
   // Make sure to always call response.end() - Node may not send
   // anything back to the client until you do. The string you pass to
   // response.end() will be the body of the response - i.e. what shows
   // up in the browser.
   //
-  // Calling .end "flushes" the response's internal buffer, forcing
+  // Calling .end 'flushes' the response's internal buffer, forcing
   // node to actually send all the data over to the client.
+
   response.end(JSON.stringify({ results : messages }));  //
 };
 

@@ -16,8 +16,8 @@ describe('Node Server Request Listener Function', function() {
     // but we want to test our function's behavior totally independent of the server code
     var req = new stubs.request('/classes/messages', 'GET');
     var res = new stubs.response();
-    console.log(res, 'res', '---------------------------------------->');
-    console.log(req, 'req');
+    // console.log(res, 'res', '---------------------------------------->');
+    // console.log(req, 'req');
 
     handler.requestHandler(req, res);
 
