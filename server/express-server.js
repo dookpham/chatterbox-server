@@ -6,6 +6,7 @@ var server = express();
 var port = 3000;
 
 server.get('/classes/messages', handleRequest.requestHandler);
+server.post('/classes/messages', handleRequest.requestHandler);
 
 server.use(express.static('client/2016-06-chatterbox-client/client'));
 
