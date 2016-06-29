@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": ">=4.0.0"
+    "node": "4.4.3"
   },
   "scripts": {
     "postinstall": "curl -s https://raw.githubusercontent.com/hackreactor-labs/pomander/master/bin/install | bash",
@@ -32,6 +32,5 @@
   },
   "dependencies": {
     "express": "^4.14.0",
-    "node": "4.4.3"
   }
 }
